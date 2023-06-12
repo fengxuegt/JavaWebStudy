@@ -13,6 +13,18 @@ public class MyHttpServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         PrintWriter printWriter = resp.getWriter();
+        String remoteAddr = req.getRemoteAddr();
         printWriter.println("<h1> Welcome liwang </h1>");
+        printWriter.println(remoteAddr);
+        req.getParameter("");
+        req.getParameterMap();
+        req.getParameterValues("");
+        req.getParameterNames();
+
+        
+
+
+
+
     }
 }
