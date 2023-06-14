@@ -18,7 +18,6 @@ public class QueryAllServlet extends HttpServlet {
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
-
         try {
             connection = DBUtils.getConnection();
             statement = connection.prepareStatement("select deptno, dname, loc from  dept");
@@ -27,12 +26,13 @@ public class QueryAllServlet extends HttpServlet {
                 String deptno = resultSet.getString("deptno");
                 String dname = resultSet.getString("dname");
                 String loc = resultSet.getString("loc");
-
+                System.out.println(deptno + " " + dname + " " + loc);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
             DBUtils.close(connection, resultSet, statement);
         }
+
     }
 }
